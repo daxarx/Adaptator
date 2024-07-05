@@ -561,7 +561,9 @@ class CustomTelegramClient(TelegramClient):
         if self.raw_updates_processor is not None:
             self.raw_updates_processor(update)
 
-        super()._handle_update(update)        if str(hashable_entity).isdigit() and int(hashable_entity) < 0:
+        super()._handle_update(update)
+        
+        if str(hashable_entity).isdigit() and int(hashable_entity) < 0:
             hashable_entity = int(str(hashable_entity)[4:])
 
         if (
