@@ -61,7 +61,7 @@ else:
                     "-q",
                     "--disable-pip-version-check",
                     "--no-warn-script-location",
-                    "hikka-tl",
+                    "telethon",
                 ],
                 check=False,
             )
@@ -86,7 +86,7 @@ else:
                     "-q",
                     "--disable-pip-version-check",
                     "--no-warn-script-location",
-                    "hikka-pyro",
+                    "pyrogram",
                 ],
                 check=True,
             )
