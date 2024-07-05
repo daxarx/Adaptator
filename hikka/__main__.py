@@ -46,7 +46,7 @@ else:
         try:
             import telethon
 
-            if tuple(map(int, telethon.__version__.split("."))) < (1, 36, 0):
+            if tuple(map(int, telethon.__version__.split("."))) < (2, 0, 4):
                 raise ImportError
         except ImportError:
             print("🔄 Installing Hikka-TL...")
@@ -61,9 +61,9 @@ else:
                     "-q",
                     "--disable-pip-version-check",
                     "--no-warn-script-location",
-                    "telethon",
+                    "hikka-tl",
                 ],
-                check=False,
+                check=True,
             )
 
             restart()
@@ -71,7 +71,7 @@ else:
         try:
             import pyrogram
 
-            if tuple(map(int, pyrogram.__version__.split("."))) < (2, 0, 61):
+            if tuple(map(int, pyrogram.__version__.split("."))) < (2, 0, 103):
                 raise ImportError
         except ImportError:
             print("🔄 Installing Hikka-Pyro...")
@@ -86,7 +86,7 @@ else:
                     "-q",
                     "--disable-pip-version-check",
                     "--no-warn-script-location",
-                    "pyrogram",
+                    "hikka-pyro",
                 ],
                 check=True,
             )
