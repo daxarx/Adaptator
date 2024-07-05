@@ -7,8 +7,8 @@
 # Netfoll Team modifided Hikka files for Netfoll
 # 🌐 https://github.com/MXRRI/Netfoll
 
-__version__ = (6, 6, 8)
-netver = (6, 6, 6)
+__version__ = (6, 6, 9)
+netver = (7, 7, 7)
 netrev = ""
 import os
 import git
