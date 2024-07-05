@@ -5,8 +5,8 @@
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# Adaptator Team modifided Hikka files for Adaptator
-# 🌐 https://github.com/s1zexxx/Adaptator
+# Netfoll Team modifided Hikka files for Netfoll
+# 🌐 https://github.com/MXRRI/Netfoll
 
 import getpass
 import os
@@ -21,7 +21,7 @@ if (
     and all(trigger not in os.environ for trigger in {"DOCKER", "GOORM"})
 ):
     print("🚫" * 15)
-    print("You attempted to run Adaptator on behalf of root user")
+    print("You attempted to run Netfoll on behalf of root user")
     print("Please, create a new user and restart script")
     print("If this action was intentional, pass --root argument instead")
     print("🚫" * 15)
