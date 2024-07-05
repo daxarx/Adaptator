@@ -17,13 +17,13 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-# ©️ Dan Gazizullin, 2021-2023
+# ©️ Dan Gazizullin, 2021-2024
 # This file is a part of Hikka Userbot
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
 # 🔑 https://www.gnu.org/licenses/agpl-3.0.html
-# Adaptator Team modifided Hikka files for Adaptator
-# 🌐 https://github.com/s1zexxx/Adaptator
+# Netfoll Team modifided Hikka files for Netfoll
+# 🌐 https://github.com/MXRRI/Netfoll
 
 
 import argparse
@@ -418,7 +418,7 @@ class Hikka:
 
     async def _web_banner(self):
         """Shows web banner"""
-        logging.info("✅ Adaptator is now can be setted up in browser!")
+        logging.info("✅ Netfoll is now can be setted up in browser!")
         logging.info("🌐 Go to %s", self.web.url)
 
     async def wait_for_web_auth(self, token: str) -> bool:
@@ -453,8 +453,8 @@ class Hikka:
                     connection=self.conn,
                     proxy=self.proxy,
                     connection_retries=None,
-                    device_model=(f"Adaptator"),
-                    app_version=(f"Adaptator v{netver[0]}.{netver[1]}.{netver[2]}"),
+                    device_model=(f"Netfoll UB"),
+                    app_version=(f"Netfoll v{netver[0]}.{netver[1]}.{netver[2]}"),
                 )
 
                 client.start(phone)
@@ -494,14 +494,14 @@ class Hikka:
                     connection=self.conn,
                     proxy=self.proxy,
                     connection_retries=None,
-                    device_model="Adaptator",
+                    device_model="Netfoll",
                 )
 
                 client.start(
                     phone=raise_auth if self.web else lambda: input("Номер телефона: ")
                 )
 
-                client.phone = "protected by s1zex"
+                client.phone = "protected by toxic"
 
                 self.clients += [client]
             except sqlite3.OperationalError:
@@ -564,7 +564,11 @@ class Hikka:
             
             logo1 = f"""
             
-                      adaptator test 
+                         _   _      _    __       _ _ 
+                        | \ | | ___| |_ / _| ___ | | |
+                        |  \| |/ _ \ __| |_ / _ \| | |
+                        | |\  |  __/ |_|  _| (_) | | |
+                        |_| \_|\___|\__|_|  \___/|_|_|  
                      ♦ Version: {'.'.join(list(map(str, list(netver))))} #{build[:7]}
                      ♦ {upd}
                      ♦ Platform: {_platform}
@@ -578,7 +582,7 @@ class Hikka:
                     else ""
                 )
                 logging.info(
-                    "🥀 Adaptator %s is working!\n🔏 GitHub commit SHA: %s (%s)\n%s%s",
+                    "👾 Netfoll %s is working!\n🔏 GitHub commit SHA: %s (%s)\n%s%s",
                     ".".join(list(map(str, list(netver)))),
                     build[:7],
                     upd,
@@ -668,14 +672,19 @@ class Hikka:
     def main(self):
         """Main entrypoint"""
         self._init_web()
+        
+        if os.name == "termux" in os.uname().release.lower():
+            print("Platform unsupported: Termux")
+            return
+        
         save_config_key("port", self.arguments.port)
         self._get_token()
 
         if (
-            not self.clients  # Search for already inited clients
-            and not self.sessions  # Search for already added sessions
-            or not self._init_clients()  # Attempt to read sessions from env
-        ) and not self._initial_setup():  # Otherwise attempt to run setup
+            not self.clients
+            and not self.sessions
+            or not self._init_clients()
+        ) and not self._initial_setup():
             return
 
         self.loop.set_exception_handler(
